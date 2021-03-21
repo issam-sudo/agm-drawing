@@ -1,0 +1,124 @@
+<app-nav></app-nav>
+
+<!-- FEATURE -->
+<div id="feature">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 col-sm-4">
+                <div class="feature-thumb">
+                    <span>01</span>
+                    <h3>Inputs AgmDrawingManager</h3>
+                    <p>circleOptions | polylineOptions | polygonOptions | markerOptions | rectangleOptions</p>
+                    <p>drawingControl</p>
+                    <p>drawingMode</p>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="feature-thumb">
+                    <span>02</span>
+                    <h3>Outputs AgmDrawingManager</h3>
+                    <p>circleComplete | markerComplete | overlayComplete | polygonComplete | polylineComplete | rectangleComplete
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="feature-thumb">
+                    <span>03</span>
+                    <h3>Installation & Library</h3>
+                    <p>npm install @types/googlemaps@3.39.12 --save-dev
+                    </p>
+                    <p>npm install @agm/core --save
+
+                    </p>
+                    <p>npm i @agm/drawing</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-12">
+                <div class="about-info">
+                    <h2>Map Drawing for AGM
+                    </h2>
+
+                    <figure>
+                        <span (click)="resetShapeSpecific('marker')"><i class="fa fa-map-marker"></i></span>
+                        <figcaption>
+                            <h3>Marker</h3>
+                            <p>click in the green circle to delete the shape in the map.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <span (click)="resetShapeSpecific('rectangle')"><i class="fa fa-plus-square-o"></i></span>
+                        <figcaption>
+                            <h3>Rectangle</h3>
+                            <p>click in the green circle to delete the shape in the map.</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <span (click)="resetShapeSpecific('polyline')"><i class="fa fa-arrows-h"></i></span>
+                        <figcaption>
+                            <h3>Polyline</h3>
+                            <p>click in the green circle to delete the shape in the map.</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <span (click)="resetShapeSpecific('circle')"><i class="fa fa-circle"></i></span>
+                        <figcaption>
+                            <h3>Circle</h3>
+                            <p>click in the green circle to delete the shape in the map.</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <span (click)="resetShapeSpecific('polygon')"><i class="fa fa-retweet"></i></span>
+                        <figcaption>
+                            <h3>Polygon</h3>
+                            <p>click in the green circle to delete the shape in the map.</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <span (click)="resetMap()"><i class="fa fa-window-restore"></i></span>
+                        <figcaption>
+                            <h3>Reset All shapes</h3>
+                            <p>click in the green circle to delete all shapes in the map.</p>
+
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="col-md-offset-1 col-md-4 col-sm-12">
+                <div style="margin-top: 20%;margin-bottom: 5%; width: 100%;">
+                    <agm-map style="height: 500px;" [latitude]="options.lat" [longitude]="options.lng" #agmMap [agmDrawingManager]="drawing">
+
+                    </agm-map>
+
+                    <agm-drawing-manager #drawing="agmDrawingManager" (polygonComplete)="polygonCreated($event)" (polylineComplete)="PolylineCreated($event)" (rectangleComplete)="RectangleCreated($event)" (circleComplete)="CircleCreated($event)" (markerComplete)="MarkerCreated($event)"
+                        [drawingControl]="managerOptions.drawingControl" [drawingControlOptions]="managerOptions.drawingControlOptions" [circleOptions]="managerOptions.circleOptions" [rectangleOptions]='managerOptions.rectangleOptions' [polylineOptions]='managerOptions.polylineOptions'
+                        [markerOptions]='managerOptions.markerOptions' [polygonOptions]='managerOptions.polygonOptions' [drawingMode]='managerOptions.drawingMode'>
+
+                    </agm-drawing-manager>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
